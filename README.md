@@ -8,3 +8,21 @@ This will be used to control my R2D2 using ROS2.  My plan is to have a package f
 colcon build
 source .install/setup.bash
 ```
+
+## Run
+
+### Arm Control
+
+The Arm control will control the movement of the arm.  There is a web interface that can publish messages to the topic /r2d2_arm_topic.  This will make the arm move.  There are orchestrated movements or simple movements.
+
+This will start the subscriber to listen for messages on the /r2d2_arm_topic
+
+```bash
+ ros2 run r2d2_arm_ctrl arm_ctrl_sub
+```
+
+Test message you can send to verify functionality
+
+```bash
+ros2 topic pub /r2d2_arm_topic std_msgs/String "data: dance"
+```
